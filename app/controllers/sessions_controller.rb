@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
         value: session.token,
         httponly: true
       }
-      
+
       render json: {
         success: true
       }
@@ -20,6 +20,19 @@ class SessionsController < ApplicationController
   end
 
   def authenticated
+    token = cookies.permanent.signed[:todolist_session_token]
+    session = Session.find_by(token: token)
+    if session
+      user = session.user
+      render json: {
+        authenticated: true,
+        username: user.username
+      }
+    else
+      render json: {
+        authenticated: false
+      }
+    end
   end
 
   def destroy
