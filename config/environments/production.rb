@@ -73,7 +73,7 @@ Rails.application.configure do
 
   # Render用
   config.hosts << "ruby-todolist.onrender.com"
-  
+
   # Use a different logger for distributed setups.
   # require 'syslog/logger'
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
@@ -87,6 +87,4 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  #render用
-  config.hosts << "your-service-name.onrender.com"
 end
